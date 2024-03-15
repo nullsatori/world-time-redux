@@ -1,12 +1,11 @@
 import React, { useEffect, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "@/redux/store";
+import {useAppDispatch, useAppSelector} from "@/redux/hooks";
 import { removeTime, updateTime } from "@/redux/slices/timesSlice";
 import { fetchTime } from "@/utils/fetchTime";
 
 const Time: React.FC = () => {
-  const dispatch = useDispatch();
-  const times = useSelector((state: RootState) => state.times.times);
+  const dispatch = useAppDispatch();
+  const times = useAppSelector((state) => state.times.times);
 
   // ref to store the interval ID
   const intervalIdRef = useRef<NodeJS.Timeout | null>(null);

@@ -1,6 +1,5 @@
 import React, { ChangeEvent, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
+import {useAppDispatch, useAppSelector} from "@/redux/hooks";
 import {
   setCities,
   setSuggestions,
@@ -19,9 +18,9 @@ interface Time {
 
 
 const Search: React.FC = () => {
-  const dispatch = useDispatch();
-  const { cities, searchTerm, suggestions } = useSelector(
-    (state: RootState) => state.cities,
+  const dispatch = useAppDispatch();
+  const { cities, searchTerm, suggestions } = useAppSelector(
+    (state) => state.cities,
   );
 
   useEffect(() => {
